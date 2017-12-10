@@ -5,10 +5,10 @@ import bodyParser from 'body-parser';
 
 export default({ config, db }) => {
   let api = Router();
+  console.log('\x1b[36mHi from announcements\x1b[0m');
 
   //  View All  -  /v1/announcement
   api.get('/', (req, res) => {
-    console.log('\x1b[36mThe call was made\x1b[0m');
     Announcement.find({}, (err, announcements) => {
       if (err) {
         console.log('\x1b[31mERROR:\x1b[0m', err);
@@ -21,8 +21,6 @@ export default({ config, db }) => {
 
   //  Add Announcement  -  /v1/announcement/add
   api.post('/add', (req, res) => {
-    console.log('\x1b[36mThe post call was made\x1b[0m');
-
     let newAnnouncement = new Announcement();
     newAnnouncement.content = req.body.content;
 

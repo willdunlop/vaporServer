@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
-import config from './config';
+import bluebird from 'bluebird';
+
+import configDb from './config';
 
 export default callback => {
-  let db = mongoose.connect(config.mongoUrl, {
+  mongoose.Promise = bluebird;
+  let db = mongoose.connect(configDb.mongoUrl, {
     //  pass through options to avoid deprecated open() waring
     useMongoClient: true,
     promiseLibrary: global.Promise

@@ -1,8 +1,10 @@
 import express from 'express';
-import config from '../config';
+import configDb from '../config';
 import middleware from '../middleware';
 import initializeDb from '../db';
+
 import announcement from '../controller/announcement';
+import account from '../controller/account';
 
 let router = express();
 
@@ -10,10 +12,11 @@ let router = express();
 initializeDb(db => {
 
   //  internal middleware
-  router.use(middleware({ config, db }));
+  router.use(middleware({ configDb, db }));
 
   //  api routes v1
-  router.use('/announcement', announcement({ config, db }));
+  router.use('/announcement', announcement({ configDb, db }));
+  router.use('/account', account({ configDb, db }))
 })
 
 export default router;
