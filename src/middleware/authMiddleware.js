@@ -24,4 +24,4 @@ let respond = (req, res) => {
   });
 }
 
-module.exports = { authenticate, generateAccessToken, respond }
+export default { authenticate, generateAccessToken, respond }

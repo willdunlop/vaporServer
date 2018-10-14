@@ -3,7 +3,7 @@ import { Router } from 'express';
 import Announcement from '../model/announcement';
 import bodyParser from 'body-parser';
 
-export default({ config, db }) => {
+const announcement = ({ config, db }) => {
   let api = Router();
   console.log('\x1b[36mHi from announcements\x1b[0m');
 
@@ -36,3 +36,6 @@ export default({ config, db }) => {
 
   return api;
 }
+
+
+export default announcement;

@@ -1,8 +1,10 @@
 import { Router } from 'express';
 
-export default({ config, db }) => {
+const middleware = ({ config, db }) => {
   let api = Router();
   //  middleware
 
   return api;
-}
+};
+
+export default middleware;

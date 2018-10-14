@@ -6,7 +6,7 @@ import passport from 'passport';
 import cors from 'cors';
 
 import configDb from './config';
-import routes from './routes';
+import router from './routes';
 
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -33,7 +33,7 @@ passport.deserializeUser(Account.deserializeUser());
 
 
 //  api routes v1
-app.use('/', routes);
+app.use('/', router);
 
 app.server.listen(configDb.port);
 console.log(`Started on port ${app.server.address().port}`);

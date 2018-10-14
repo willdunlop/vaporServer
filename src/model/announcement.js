@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-let Schema = mongoose.Schema;
+import mongoose, { Schema } from 'mongoose';
 
 let announcementSchema = new Schema({
   content: String
 });
 
-module.exports = mongoose.model('Announcement', announcementSchema);
+export default mongoose.model('Announcement', announcementSchema);

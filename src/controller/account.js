@@ -3,11 +3,11 @@ import { Router } from 'express';
 import Account from '../model/account';
 import bodyParser from 'body-parser';
 import passport from 'passport';
-import configDb from '../config';
+import config from '../config';
 
 import { generateAccessToken, respond, authenticate } from '../middleware/authMiddleware';
 
-export default ({ configDb, db }) => {
+const account = ({ config, db }) => {
   let api = Router();
 
   api.post('/signup', (req, res) => {
@@ -43,3 +43,5 @@ export default ({ configDb, db }) => {
 
   return api;
 }
+
+export default account;

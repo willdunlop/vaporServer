@@ -1,7 +1,5 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
-
-const Schema = mongoose.Schema;
 
 //  TODO: add regex patterns
 let Account = new Schema({
@@ -17,4 +15,5 @@ let Account = new Schema({
 });
 
 Account.plugin(passportLocalMongoose);
-module.exports = mongoose.model('Account', Account);
+
+export default mongoose.model('Account', Account);
